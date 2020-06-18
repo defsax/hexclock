@@ -1,0 +1,31 @@
+.centre{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#time{
+  background: red;
+  padding: 1em;
+  border-radius: 10px;
+  display: none;
+}
+
+#all{
+  /*font: 30px Courier;*/
+  font-family: 'Metal Mania', cursive;
+  font-size: 50px;
+  color: white;
+}
+#menu{
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 25%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+body{
+  background: blue;
+}
