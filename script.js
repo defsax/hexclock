@@ -63,3 +63,51 @@ function decimalClock(){
   
   setInterval('decimalClock()', 1000);
 }
+
+function hexClock(){
+  var date = new Date();
+  
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let s = date.getSeconds();
+  
+  /*
+   * http://www.intuitor.com/hex/hexclock.html
+
+    1 hexsecond = 1.3110 (1.5216) seconds
+    1 second = 0.75910 (0.C2316) hexseconds
+    1 hexminute = 0.35210 (0.5A016) minutes
+    1 minute = 2.8410 (2.D816) hexminutes
+    1 hexhour = 1.510 (1.816) hours
+    1 hour = 0.66710 (0.AAB16) hexhours
+   */
+  
+  let hexH = Math.round(h * 1.5);
+  let hexM = Math.round(m * 0.352);
+  let hexS = Math.round(s * 1.31);
+  
+  document.getElementById("dec").innerHTML = "#" + h + m + s;
+  
+  h = hexH.toString(16);
+  m = hexM.toString(16);
+  s = hexS.toString(16);
+  
+  //console.log("h: " + h);
+  //console.log("m: " + m);
+  //console.log("s: " + s);
+  
+  if(h.length < 2)
+    h = '0' + h;
+  
+  if(m.length < 2)
+    m = '0' + m;
+  
+  if(s.length < 2)
+    s = '0' + s;
+  
+  background.style.backgroundColor = "#" + h + m + s
+  
+  document.getElementById("hex").innerHTML = "#" + h + m + s;
+  
+  setInterval('hexClock()', 1000);
+}

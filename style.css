@@ -12,7 +12,7 @@
   display: none;
 }
 
-#all{
+#hex, #dec{
   /*font: 30px Courier;*/
   font-family: 'Metal Mania', cursive;
   font-size: 50px;
