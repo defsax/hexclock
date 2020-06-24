@@ -105,9 +105,41 @@ function hexClock(){
   if(s.length < 2)
     s = '0' + s;
   
-  background.style.backgroundColor = "#" + h + m + s
+  //background.style.backgroundColor = "#" + h + m + s
   
   document.getElementById("hex").innerHTML = "#" + h + m + s;
   
+  convert();
+  
   setInterval('hexClock()', 1000);
+}
+
+function display(){
+  document.getElementById("secs").innerHTML = secsSinceMidnight();
+}
+function convert(){
+  
+  const decSecondsRange = { min: 0, max: 86400 };
+  const hexSecondsRange = { min: 0, max: 1048575 };
+  
+  let normalized = normalize(secsSinceMidnight(), decSecondsRange, hexSecondsRange);
+  
+  document.getElementById("converted").innerHTML = normalized.toString(16);
+  //debugger;
+  let backCol = "#" + normalized.toString(16);
+  background.style.backgroundColor = backCol;
+}
+
+function secsSinceMidnight(){
+  let now = new Date();
+  let then = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+  let diff = now.getTime() - then.getTime();
+  return diff / 1000; 
+}
+
+function normalize(x, inRange, outRange){
+  
+  let normalized = (outRange.max - outRange.min) * ((x - inRange.min) / (inRange.max - inRange.min)) + outRange.min;
+  
+  return Math.round(normalized);
 }

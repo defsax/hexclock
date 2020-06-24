@@ -12,11 +12,13 @@
   display: none;
 }
 
-#hex, #dec{
+#hex, #dec, #secs, #converted{
   /*font: 30px Courier;*/
-  font-family: 'Metal Mania', cursive;
+  /*font-family: 'Metal Mania', cursive;*/
+  font-family: 'Dosis', sans-serif;
   font-size: 50px;
   color: white;
+  text-align: left;
 }
 #menu{
   background: rgba(0, 0, 0, 0.5);

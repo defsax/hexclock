@@ -6,15 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="reset.css">
 		<link rel="stylesheet" href="style.css">
-		<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet"> 
   </head>
   
   <body id="background" onload="hexClock()">
     <div id="menu" class="centre">
       <h1 id="hex"></h1>
       <h1 id="dec"></h1>
-      <button id="decimal">Decimal</button>
-      <button id="hexi">Hex</button>
+      <h1 id="secs"></h1>
+      <h1 id="converted"></h1>
+      <button id="decimal" onclick="display()">Decimal</button>
+      <button id="hexi" onclick="convert()">Hex</button>
     <div>
     <div id="time" class="centre">
       <h1 id="hour"></h1>
