@@ -109,9 +109,10 @@ function hexClock(){
   
   document.getElementById("hex").innerHTML = "#" + h + m + s;
   
-  convert();
+  let color = convert();
+  background.style.backgroundColor = color;
   
-  setInterval('hexClock()', 1000);
+  setInterval('hexClock()', 131);
 }
 
 function display(){
@@ -126,8 +127,19 @@ function convert(){
   
   document.getElementById("converted").innerHTML = normalized.toString(16);
   //debugger;
-  let backCol = "#" + normalized.toString(16);
-  background.style.backgroundColor = backCol;
+  
+  let backCol = normalized.toString(16);
+  
+  if(backCol.length === 3)
+    backCol = "#" + 0 + 0 + 0 + backCol;
+  else if(backCol.length === 4)
+    backCol = "#" + 0 + 0 + backCol;
+  else if(backCol.length === 5)
+    backCol = "#" + 0 + backCol;
+  else
+    backCol = "#" + backCol;
+  
+  return backCol;
 }
 
 function secsSinceMidnight(){
