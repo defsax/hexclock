@@ -4,17 +4,26 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-#time{
-  background: red;
-  padding: 1em;
-  border-radius: 10px;
-  display: none;
+.button{
+  border: none;
+  text-decoration: none;
+  display: block;
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  font-family: 'Dosis', sans-serif;
+  font-size: 40px;
+  transition: 0.3s;
+}
+.button:hover{
+  background: rgba(0, 0, 0, 0.3);
+}
+.btns{
+  margin-left: auto;
+  margin-right: 0;
+  float: right;
 }
 
-#hex, #dec, #secs, #converted{
-  /*font: 30px Courier;*/
-  /*font-family: 'Metal Mania', cursive;*/
+#time{
   font-family: 'Dosis', sans-serif;
   font-size: 50px;
   color: white;
@@ -23,7 +32,7 @@
 #menu{
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
-  width: 25%;
+  width: 50%;
   border-radius: 10px;
   text-align: center;
 }

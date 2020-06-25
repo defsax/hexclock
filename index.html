@@ -9,30 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet"> 
   </head>
   
-  <body id="background" onload="hexClock()">
+  <body id="background" onload="clockLoop()">
+    <h1 id="output"></h1>
+    
     <div id="menu" class="centre">
-      <h1 id="hex"></h1>
-      <h1 id="dec"></h1>
-      <h1 id="secs"></h1>
-      <h1 id="converted"></h1>
-      <button id="decimal" onclick="display()">Decimal</button>
-      <button id="hexi" onclick="convert()">Hex</button>
+      <h1 id="time"></h1>
+      
+      <div class="btns">
+        <button id="decimal" class="button">dec</button>
+        <button id="hexi" class="button">hex</button>
+      </div>
     <div>
-    <div id="time" class="centre">
-      <h1 id="hour"></h1>
-      <h1 id="hourhex"></h1>
-      
-      <h1 id="minute"></h1>
-      <h1 id="minutehex"></h1>
-      
-      <h1 id="second"></h1>
-      <h1 id="secondhex"></h1>
-      
-      <h1 id="millisecond"></h1>
-      <h1 id="millisecondhex"></h1>
-      
-      <h1 id="hextime"></h1>
-    </div>
     <script src="script.js"></script>
   </body>
 </html>
