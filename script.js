@@ -8,6 +8,15 @@
   1 hexhour = 1.510 (1.816) hours
   1 hour = 0.66710 (0.AAB16) hexhours
 */
+var worker;
+
+if(typeof(Worker) !== "undefined"){
+  if(typeof(worker) === "undefined"){
+    worker = new Worker("hexclock.js");
+  }
+}else{
+  console.log("No web worker support.");
+}
 
 var hexClockEnabled = true;
 var loopTime = 131;
@@ -55,7 +64,7 @@ function decimalClock(){
   if(s.length < 2)
     s = '0' + s;
   
-  background.style.backgroundColor = "#" + h + m + s
+  background.style.backgroundColor = "#" + h + m + s;
   
   document.getElementById("time").innerHTML = "#" + h + m + s;
 }
