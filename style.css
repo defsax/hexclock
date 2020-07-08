@@ -1,6 +1,6 @@
 .centre{
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -13,6 +13,7 @@
   font-family: 'Dosis', sans-serif;
   font-size: 40px;
   transition: 0.3s;
+  padding: 10px;
 }
 .button:hover{
   background: rgba(0, 0, 0, 0.3);
@@ -21,6 +22,16 @@
   margin-left: auto;
   margin-right: 0;
   float: right;
+  right: 0px;
+}
+
+#decimal{
+  border-radius: 0 10px 0 0;
+  padding-bottom: 5px;
+}
+#hexi{
+  border-radius: 0 0 10px 0;
+  padding-top: 5px;
 }
 
 #time{
@@ -28,11 +39,15 @@
   font-size: 50px;
   color: white;
   text-align: left;
+  padding-top: 10px;
+  position: absolute;
+  transform: translateY(50%);
 }
 #menu{
   background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  padding-left: 20px;
   width: 50%;
+  max-width: 500px;
   border-radius: 10px;
   text-align: center;
 }

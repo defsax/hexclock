@@ -1,22 +1,13 @@
 /*
   * http://www.intuitor.com/hex/hexclock.html
 
-  1 hexsecond = 1.3110 (1.5216) seconds
-  1 second = 0.75910 (0.C2316) hexseconds
-  1 hexminute = 0.35210 (0.5A016) minutes
-  1 minute = 2.8410 (2.D816) hexminutes
-  1 hexhour = 1.510 (1.816) hours
-  1 hour = 0.66710 (0.AAB16) hexhours
-*/
-var worker;
-
-if(typeof(Worker) !== "undefined"){
-  if(typeof(worker) === "undefined"){
-    worker = new Worker("hexclock.js");
-  }
-}else{
-  console.log("No web worker support.");
-}
+  1 hexsecond   = 1.3110 (1.5216) seconds
+  1 second      = 0.75910 (0.C2316) hexseconds
+  1 hexminute   = 0.35210 (0.5A016) minutes
+  1 minute      = 2.8410 (2.D816) hexminutes
+  1 hexhour     = 1.510 (1.816) hours
+  1 hour        = 0.66710 (0.AAB16) hexhours
+*/  
 
 var hexClockEnabled = true;
 var loopTime = 131;
@@ -36,18 +27,18 @@ document.getElementById("hexi").addEventListener("click", function(){
 
 function clockLoop(){
   if(hexClockEnabled === true){
-    document.getElementById("output").innerHTML = "Hex Time Clock Enabled.";
+//     document.getElementById("output").innerHTML = "Hex Time Clock Enabled.";
     hexClock();
   }
   else{
-    document.getElementById("output").innerHTML = "Standard Clock Enabled.";
+//     document.getElementById("output").innerHTML = "Standard Clock Enabled.";
     decimalClock();
   }
   setInterval('clockLoop()', loopTime);
 }
 
 function decimalClock(){
-  var date = new Date();
+  let date = new Date();
   
   let h = date.getHours();
   let m = date.getMinutes();
@@ -65,7 +56,6 @@ function decimalClock(){
     s = '0' + s;
   
   background.style.backgroundColor = "#" + h + m + s;
-  
   document.getElementById("time").innerHTML = "#" + h + m + s;
 }
 
@@ -77,10 +67,9 @@ function hexClock(){
 function convert(){
   let normalized = normalize(secsSinceMidnight(), decSecondsRange, hexSecondsRange);
   
-  document.getElementById("time").innerHTML = normalized.toString(16);
-  //debugger;
-  
   let backCol = normalized.toString(16);
+  
+  document.getElementById("time").innerHTML = backCol;
   
   if(backCol.length === 3)
     backCol = "#" + backCol + 0 + 0 + 0;
