@@ -10,39 +10,31 @@
 */  
 
 var hexClockEnabled = true;
-var loopTime = 131;
 
 const decSecondsRange = { min: 0, max: 86400 };
 const hexSecondsRange = { min: 0, max: 1048575 };
 
-// var time = new Date();
-// var midnight = new Date(time.getFullYear(), time.getMonth(), time.getDate(), 0, 0, 0);
-
 document.getElementById("decimal").addEventListener("click", function(){ 
   hexClockEnabled = false;
-  loopTime = 1000;
 });
 
 document.getElementById("hexi").addEventListener("click", function(){ 
   hexClockEnabled = true;
-  loopTime = 131;
 });
 
 function clockLoop(){
   if(hexClockEnabled === true){
-//     document.getElementById("output").innerHTML = "Hex Time Clock Enabled.";
     hexClock();
   }
   else{
-//     document.getElementById("output").innerHTML = "Standard Clock Enabled.";
     decimalClock();
   }
-  setInterval('clockLoop()', loopTime);
+  requestAnimationFrame(clockLoop);
 }
+requestAnimationFrame(clockLoop);
 
 function decimalClock(){
-  let date = Date.now();
-  let date1 = new Date();
+  let date = new Date();
   
   let h = date.getHours();
   let m = date.getMinutes();
@@ -73,9 +65,7 @@ function convert(){
   let normalized = normalize(secsSinceMidnight(), decSecondsRange, hexSecondsRange);
   
   let backCol = normalized.toString(16);
-  
-//   document.getElementById("time").innerHTML = backCol;
-  
+
   if(backCol.length === 3)
     backCol = "#" + backCol + 0 + 0 + 0;
   else if(backCol.length === 4)
@@ -100,4 +90,12 @@ function normalize(x, inRange, outRange){
   let normalized = (outRange.max - outRange.min) * ((x - inRange.min) / (inRange.max - inRange.min)) + outRange.min;
   
   return Math.round(normalized);
+}
+
+function draw(col){
+  context.beginPath();
+  context.rect(0, 0, 400, 400);
+  context.fillStyle = col;
+  context.fill();
+  context.closePath();
 }
