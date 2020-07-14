@@ -58,14 +58,15 @@ function decimalClock(){
 function hexClock(){
   let color = convert();
   background.style.backgroundColor = color;
-  document.getElementById("time").innerHTML = color;
+  //document.getElementById("time").innerHTML = color;
 }
 
 function convert(){
   let normalized = normalize(secsSinceMidnight(), decSecondsRange, hexSecondsRange);
   
   let backCol = normalized.toString(16);
-
+  document.getElementById("time").innerHTML = "." + backCol;
+  
   if(backCol.length === 3)
     backCol = "#" + backCol + 0 + 0 + 0;
   else if(backCol.length === 4)
