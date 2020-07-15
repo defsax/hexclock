@@ -41,6 +41,7 @@
   text-align: left;
   padding-top: 10px;
   position: absolute;
+  z-index: -1;
   transform: translateY(50%);
 }
 #menu{
@@ -50,4 +51,27 @@
   max-width: 500px;
   border-radius: 10px;
   text-align: center;
+}
+
+@media screen and (max-width: 500px){
+  .button{
+    display: inline;
+  }
+  .btns{
+    float: none;
+  }
+  #time{
+    position: static;
+    margin: auto;
+    padding: 0 10vw 0 10vw;
+  }
+  #menu{
+    padding-left: 0;
+    width: 60%;
+  }
+  #decimal, #hexi{
+    border-radius: 0;
+    padding: 10px;
+    margin: 35px 5px 5px 5px;
+  }
 }
