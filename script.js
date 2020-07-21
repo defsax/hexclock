@@ -12,7 +12,9 @@
 var hexClockEnabled = true;
 
 const decSecondsRange = { min: 0, max: 86400 };
-const hexSecondsRange = { min: 0, max: 1048575 };
+// const hexSecondsRange = { min: 0, max: 66535 };
+// const hexSecondsRange = { min: 0, max: 1048575 };
+const hexSecondsRange = { min: 0, max: 16777215 };
 
 document.getElementById("decimal").addEventListener("click", function(){ 
   hexClockEnabled = false;
@@ -36,13 +38,9 @@ requestAnimationFrame(clockLoop);
 function decimalClock(){
   let date = new Date();
   
-  let h = date.getHours();
-  let m = date.getMinutes();
-  let s = date.getSeconds();
-  
-  h = h.toString();
-  m = m.toString();
-  s = s.toString();
+  let h = date.getHours().toString();
+  let m = date.getMinutes().toString();
+  let s = date.getSeconds().toString();
   
   if(h.length < 2)
     h = '0' + h;
@@ -56,9 +54,7 @@ function decimalClock(){
 }
 
 function hexClock(){
-  let color = convert();
-  background.style.backgroundColor = color;
-  //document.getElementById("time").innerHTML = color;
+  background.style.backgroundColor = convert();
 }
 
 function convert(){
@@ -91,12 +87,4 @@ function normalize(x, inRange, outRange){
   let normalized = (outRange.max - outRange.min) * ((x - inRange.min) / (inRange.max - inRange.min)) + outRange.min;
   
   return Math.round(normalized);
-}
-
-function draw(col){
-  context.beginPath();
-  context.rect(0, 0, 400, 400);
-  context.fillStyle = col;
-  context.fill();
-  context.closePath();
 }
