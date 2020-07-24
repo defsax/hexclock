@@ -19,9 +19,11 @@ const hexSecondsRange = { min: 0, max: 16777215 };
 document.getElementById("decimal").addEventListener("click", function(){ 
   hexClockEnabled = false;
 });
-
 document.getElementById("hexi").addEventListener("click", function(){ 
   hexClockEnabled = true;
+});
+document.addEventListener("DOMContentLoaded", () =>{
+    clockLoop();
 });
 
 function clockLoop(){
